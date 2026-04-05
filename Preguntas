@@ -1,0 +1,143 @@
+¿Qué es Next.js y por qué es popular?
+
+Next.js es un framework basado en React que permite crear aplicaciones web modernas. Es popular porque facilita el desarrollo con características como renderizado del lado del servidor (SSR), generación de sitios estáticos (SSG), enrutamiento automático, optimización de imágenes y buen rendimiento.
+
+Comando para crear un proyecto con la última versión
+
+npx create-next-app@latest
+
+Comando para levantar el entorno y puerto
+
+npm run dev
+
+Se ejecuta por defecto en:
+http://localhost:3000
+
+¿Qué hace npm run build?
+
+Este comando prepara la aplicación para producción. Compila el proyecto, optimiza el código y genera archivos listos para ser desplegados.
+
+¿Para qué sirven las carpetas public y app?
+
+public: contiene archivos estáticos como imágenes, íconos o fuentes.
+
+app: contiene las páginas, rutas y layouts del proyecto (estructura principal de la app).
+
+¿Qué es CSS Modules y cómo se usan?
+
+Es una forma de escribir CSS donde los estilos son locales a cada componente, evitando conflictos. Se usan importando archivos .module.css.
+
+¿Qué hace layout.tsx?
+
+Define la estructura base de la aplicación. Se reutiliza en todas las páginas hijas para mantener consistencia (ej. navbar, footer).
+
+¿Qué es el enrutamiento?
+
+Es el sistema que permite navegar entre diferentes páginas mediante URLs dentro de la aplicación.
+
+Diferencia entre Image e img
+
+Image (Next.js): optimiza imágenes automáticamente, mejora rendimiento y aplica lazy loading.
+
+img: etiqueta HTML básica sin optimización.
+
+¿Qué es Lazy Load?
+
+Es una técnica que carga elementos (como imágenes) solo cuando aparecen en pantalla, mejorando el rendimiento.
+
+Funcionamiento del código de imágenes
+
+La primera imagen (hidden md:block) se muestra solo en pantallas medianas o grandes.
+
+La segunda imagen (block md:hidden) se muestra solo en pantallas pequeñas (móviles).
+
+Es un ejemplo de diseño responsive.
+
+¿Cómo funciona el enrutamiento en Next.js?
+
+Funciona mediante el sistema de archivos. Cada carpeta dentro de "app" representa una ruta.
+
+Ejemplo:
+app/dashboard/page.tsx → /dashboard
+
+¿Qué es una ruta?
+
+Es una dirección URL que lleva a una página específica dentro de la aplicación.
+
+Ejemplo:
+/dashboard
+/login
+
+Error en /dashboard
+
+Generalmente ocurre por mala configuración de rutas, archivos faltantes o uso incorrecto de hooks en componentes del servidor.
+
+Error en /dashboard (repetido)
+
+Puede estar relacionado con:
+
+uso de hooks en server components
+falta de "use client"
+errores en la estructura de carpetas
+¿Qué es File System Routing?
+
+Es el sistema de Next.js donde las rutas se crean automáticamente basadas en la estructura de carpetas.
+
+¿Cómo funcionan las rutas anidadas?
+
+Se crean colocando carpetas dentro de otras.
+
+Ejemplo:
+app/dashboard/settings/page.tsx
+
+Ruta:
+/dashboard/settings
+
+¿Por qué es necesario export default function?
+
+Porque define el componente principal que Next.js renderiza en esa página.
+
+¿Para qué sirve el componente Link?
+
+Permite navegar entre páginas sin recargar la aplicación, haciendo la navegación más rápida.
+
+Diferencia entre <a> y <Link>
+
+<a>: recarga toda la página.
+
+<Link>: navegación interna sin recarga (más eficiente).
+¿Qué es un Hook?
+
+Son funciones especiales de React que permiten manejar estado y efectos dentro de componentes.
+
+Ejemplos:
+useState, useEffect
+
+¿Qué hooks usa Midu?
+
+useState
+useEffect
+usePathname (propio de Next.js)
+
+¿Por qué ocurre el error?
+
+Error: "usePathname only works in Client Components"
+
+Ocurre porque se está usando un hook en un componente del servidor.
+
+Solución:
+Agregar al inicio del archivo:
+
+"use client"
+
+¿Se pueden ejecutar componentes en cliente y servidor?
+
+Sí.
+
+Server Components: se ejecutan en el servidor (por defecto).
+
+Client Components: se ejecutan en el navegador (usando "use client").
+
+¿Qué es Code Splitting?
+
+Es una técnica que divide el código en partes para cargar solo lo necesario, mejorando el rendimiento de la aplicación.
